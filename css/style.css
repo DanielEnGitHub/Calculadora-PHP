@@ -27,6 +27,7 @@
     text-align: right;
     font-family: 'Orbitron', sans-serif;
     border-radius: 10px;
+    outline: none;
 }
 
 /*DANIEL GALLINA*/
@@ -53,6 +54,7 @@
     border-bottom-right-radius: 35px;
     border: rgb(97, 85, 85) 6px solid;
     text-align: right;
+    position: relative;
 }
 
 .btn1{
@@ -64,6 +66,8 @@
     width: 70px;
     color: white;
     background-color:rgb(97, 85, 85);
+    outline: none;
+    border: none;
 }
 
 .btn2{
@@ -76,6 +80,8 @@
     height: 50px;
     color: white;
     background-color:rgb(97, 85, 85);
+    outline: none;
+    border: none;
 }
 
 .btn2_Black{
@@ -88,6 +94,8 @@
     height: 50px;
     color: white;
     background-color:rgb(7, 5, 19);
+    outline: none;
+    border: none;
 }
 
 .btn2_Orange{
@@ -100,16 +108,87 @@
     height: 50px;
     color: white;
     background-color:rgb(216, 120, 64);
+    outline: none;
+    border: none;
 }
 
 .btn2_Suma{
     font-size: 20px;
     margin-top: 10px;
-    margin-right: 9px;
+    right: 9px;
     cursor: pointer;
     border-radius: 6px;
     width: 70px;
-    height: 100px;
+    height: 110px;
     color: white;
     background-color:rgb(97, 85, 85);
+    position: absolute;
+    outline: none;
+    border: none;
+}
+
+.btn2_space{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-right: 90px;
+    cursor: pointer;
+    border-radius: 6px;
+    width: 70px;
+    height: 50px;
+    color: white;
+    background-color:rgb(97, 85, 85);
+    outline: none;
+    border: none;
+}
+
+.btn2_Black_1{
+    font-size: 20px;
+    margin-right: 90px;
+    cursor: pointer;
+    border-radius: 6px;
+    width: 70px;
+    height: 50px;
+    color: white;
+    background-color:rgb(7, 5, 19);
+    outline: none;
+    border: none;
+}
+
+
+.btn2:active, .btn2_space:active{
+    transition: 0.1s;
+    background-color: rgb(133, 125, 125);
+    width: 69px;
+    height: 49px;
+    margin-left: 1px;
+}
+
+.btn2_Suma:active{
+    transition: 0.1s;
+    background-color: rgb(133, 125, 125);
+    width: 69px;
+    height: 109px;
+}
+
+.btn1:active{
+    transition: 0.1s;
+    background-color: rgb(133, 125, 125);
+    width: 69px;
+    margin-left: 1px;
+}
+
+.btn2_Black:active, .btn2_Black_1:active{
+    transition: 0.1s;
+    background-color: rgb(51, 51, 51);
+    width: 69px;
+    height: 49px;
+    margin-left: 1px;
+}
+
+.btn2_Orange:active{
+    transition: 0.1s;
+    background-color:rgb(230, 150, 104);
+    width: 69px;
+    height: 49px;
+    margin-left: 1px;
 }
