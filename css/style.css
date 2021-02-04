@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@900&family=Source+Code+Pro:wght@700&display=swap');
+/*Pantalla*/
+
+/*-----------------Contenedor--------------------*/
+.container{
+    font-family: 'Saira Condensed', sans-serif;
+    color: white;
+    font-size: 25px;
+    margin-top: 5%;
+    background-color: rgb(49, 45, 45);
+    height: 180px;
+    width: 420px;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    border: rgb(97, 85, 85) 6px solid;
+    
+}
+
+/*PANTALLA CELESET*/
+.pantalla{
+    background-color: rgb(214, 233, 240);
+    margin-top: -12px;
+    width: 350px;
+    height: 80px;
+    font-size: 50px;
+    text-align: right;
+    font-family: 'Orbitron', sans-serif;
+    border-radius: 10px;
+}
+
+/*DANIEL GALLINA*/
+.text{
+    margin-top: 15px;
+    margin-right: 160px;
+    display: inline-block;
+}
+
+/*V1.0*/
+.txt{
+    display: inline-block;
+    margin-top: 15px;
+}
+
+
+
+/*-----------------TECLADO--------------------*/
+.keys{
+    background-color: rgb(180, 180, 180);
+    height: 355px;
+    width: 420px;
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+    border: rgb(97, 85, 85) 6px solid;
+    text-align: right;
+}
+
+.btn1{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-right: 9px;
+    cursor: pointer;
+    border-radius: 6px;
+    width: 70px;
+    color: white;
+    background-color:rgb(97, 85, 85);
+}
+
+.btn2{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-right: 9px;
+    cursor: pointer;
+    border-radius: 6px;
+    width: 70px;
+    height: 50px;
+    color: white;
+    background-color:rgb(97, 85, 85);
+}
+
+.btn2_Black{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-right: 9px;
+    cursor: pointer;
+    border-radius: 6px;
+    width: 70px;
+    height: 50px;
+    color: white;
+    background-color:rgb(7, 5, 19);
+}
+
+.btn2_Orange{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-right: 9px;
+    cursor: pointer;
+    border-radius: 6px;
+    width: 70px;
+    height: 50px;
+    color: white;
+    background-color:rgb(216, 120, 64);
+}
+
+.btn2_Suma{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-right: 9px;
+    cursor: pointer;
+    border-radius: 6px;
+    width: 70px;
+    height: 100px;
+    color: white;
+    background-color:rgb(97, 85, 85);
+}
