@@ -1,31 +1,69 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@900&family=Source+Code+Pro:wght@700&display=swap');
-/*Pantalla*/
 
-/*-----------------Contenedor--------------------*/
+
+body{
+    overflow: hidden;
+}
+
+/*-----------------IMAGENES------------------*/
+
+.regla{
+    position:absolute; 
+    z-index:-1; 
+    margin-top: -250px; 
+    margin-left: -310px;
+}
+
+.apple{
+    position:absolute; 
+    z-index:-1; 
+    margin-top: 400px; 
+    margin-left: -120px;
+}
+
+.notebok{
+    position:absolute; 
+    z-index:-1; 
+    margin-top: 80px; 
+    margin-left: 1000px;
+}
+
+.pencil{
+    position:absolute; 
+    z-index:-1; 
+    margin-top: -180px; 
+    margin-left: 950px;
+}
+
+/*---------------------Pantalla------------------*/
+/*Contenedor*/
 .container{
     font-family: 'Saira Condensed', sans-serif;
     color: white;
     font-size: 25px;
-    margin-top: 5%;
+    margin-top: 10%;
     background-color: rgb(49, 45, 45);
     height: 180px;
     width: 420px;
     border-top-left-radius: 35px;
     border-top-right-radius: 35px;
     border: rgb(97, 85, 85) 6px solid;
+    -webkit-box-shadow: 12px 23px 28px -4px rgba(0,0,0,1);
+    -moz-box-shadow: 12px 23px 28px -4px rgba(0,0,0,1);
+    box-shadow: 12px 23px 28px -4px rgba(0,0,0,1);
     
 }
 
 /*PANTALLA CELESET*/
 .pantalla{
+    font-family: 'Orbitron', sans-serif;
     background-color: rgb(214, 233, 240);
     margin-top: -12px;
     width: 350px;
     height: 80px;
     font-size: 50px;
     text-align: right;
-    font-family: 'Orbitron', sans-serif;
     border-radius: 10px;
     outline: none;
 }
@@ -55,6 +93,9 @@
     border: rgb(97, 85, 85) 6px solid;
     text-align: right;
     position: relative;
+    -webkit-box-shadow: 13px 9px 28px -4px rgba(0,0,0,1);
+    -moz-box-shadow: 13px 9px 28px -4px rgba(0,0,0,1);
+    box-shadow: 13px 9px 28px -4px rgba(0,0,0,1);
 }
 
 .btn1{
