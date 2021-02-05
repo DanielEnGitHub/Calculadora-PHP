@@ -57,13 +57,13 @@ body{
 
 /*PANTALLA CELESET*/
 .pantalla{
+    font-family: 'Orbitron', sans-serif;
     background-color: rgb(214, 233, 240);
     margin-top: -12px;
     width: 350px;
     height: 80px;
     font-size: 50px;
     text-align: right;
-    font-family: 'Orbitron', sans-serif;
     border-radius: 10px;
     outline: none;
 }
