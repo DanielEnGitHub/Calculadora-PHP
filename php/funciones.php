@@ -89,6 +89,41 @@
             // }
     }
 
+    function verificar_valores(){
+        if(empty($_REQUEST['boton'])){
+            global $boton;
+            $boton = "";
+        }else {
+            global $boton;
+            $boton = $_REQUEST['boton'];
+        }
+    
+        if (empty($_REQUEST['num']) AND empty($_REQUEST['resultado'])){
+            global $resultado;
+            $val = 0;
+            $resultado = 0;
+        }else {
+            global $resultado;
+            $val = $_GET['num'];
+            $resultado =$_REQUEST['resultado'];
+        }
+    
+        if(empty($_REQUEST['valI'])){
+            $valI = 0;
+        }else {
+            $valI = $_GET['num'];
+        }
+    }
+
+    function verificar_operaciones(){
+        global $resultado;
+        global $boton;
+        if ($resultado>=1 AND $boton == "suma"){
+                echo "+"; 
+            }elseif($boton == "="){
+                echo $resultado; 
+            }
+    }
     
 
 ?>

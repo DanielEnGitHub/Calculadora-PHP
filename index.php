@@ -1,3 +1,6 @@
+<?php include("php/funciones.php"); 
+        verificar_valores();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,36 +20,13 @@
     <img src="img/notebook.png" width="950px" class="notebok">
     <img src="img/apple.png" width="450px" class="apple">
     <img src="img/1_wfREjDBpYeKWMUQ97mPd6w.png" width="450px" class="pencil">
-<?php 
-    if(empty($_REQUEST['boton'])){
-        $boton = "";
-    }else {
-        $boton = $_REQUEST['boton'];
-    }
-
-    if (empty($_REQUEST['num']) AND empty($_REQUEST['resultado'])){
-        $val = 0;
-        $resultado = 0;
-    }else {
-        $val = $_GET['num'];
-        $resultado =$_REQUEST['resultado'];
-    }
-
-    if(empty($_REQUEST['valI'])){
-        $valI = 0;
-    }else {
-        $valI = $_GET['num'];
-    }
-
-    ?>
-
 
     <form action='proceso.php?val=<?php echo $val; ?>&&resultado=<?php echo $resultado; ?>&&valI=<?php echo $valI; ?>' method='POST'>
     <center> 
             <!-- pantalla -->
         <div class="container">
             <h4 class="text">DANIEL GALLINA</h4><h4 class="txt">V1.0</h4>
-            <input placeholder="0" type="text" name="valor" class="pantalla" autocomplete="off" value="<?php if ($resultado>=1 AND $boton == "suma"){ echo "+"; }elseif($boton == "="){echo $resultado; } ; ?>">
+            <input placeholder="0" type="text" name="valor" class="pantalla" autocomplete="off" value="<?php verificar_operaciones(); ?>">
         </div>
         <div class="keys">
             <!-- linea 1-->
