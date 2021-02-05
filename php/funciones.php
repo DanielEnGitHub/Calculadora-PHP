@@ -48,7 +48,8 @@
             $valor = $_REQUEST['valor'];
             
 
-            if (!empty($_REQUEST['val'])){
+            if (!empty($_REQUEST['val']) OR !empty($_REQUEST['valI'])){
+                $valI = $_REQUEST['valI'];
                 $var = $_REQUEST['val'];
                 $resultado = $_REQUEST['resultado'];
             }
@@ -57,15 +58,19 @@
             if ($_REQUEST['number'] == "SUMA"){
                 $boton = "suma";
                 $var ++;
-                $resultado = $resultado + $valor;
+                if($valI>=1){
+                    $resultado = $resultado;
+                }else {
+                    $resultado = $resultado + $valor;   
+                }
                 header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton");
             }
 
             if($_REQUEST['number'] == "="){
                 $boton = "=";
-                $var ++;
+                $valI ++;
                 $resultado = $resultado + $valor;
-                header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton");
+                header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&valI=$valI");
             }
 
             if ($_REQUEST['number'] == "C/AC"){

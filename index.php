@@ -29,14 +29,19 @@
         $resultado = 0;
     }else {
         $val = $_GET['num'];
-
         $resultado =$_REQUEST['resultado'];
+    }
+
+    if(empty($_REQUEST['valI'])){
+        $valI = 0;
+    }else {
+        $valI = $_GET['num'];
     }
 
     ?>
 
 
-    <form action='proceso.php?val=<?php echo $val; ?>&&resultado=<?php echo $resultado; ?>' method='POST'>
+    <form action='proceso.php?val=<?php echo $val; ?>&&resultado=<?php echo $resultado; ?>&&valI=<?php echo $valI; ?>' method='POST'>
     <center> 
             <!-- pantalla -->
         <div class="container">
