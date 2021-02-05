@@ -1,50 +1,5 @@
 <?php
-    // function validarDatos(){
-    //     if (empty($_GET['number']) OR $_GET['number'] == 'C/AC') {
-    //         $number = 0;
-    //         echo $number;
-    //         return $number;
-    //     }
-    //     else {
-    //         $number = $_GET['number'];
-    //         if ($number == "SUMA"){
-    //             echo "+";
-    //             return $number;
-    //         }else{
-    //         echo $number;
-    //         return $number;
-    //         }
-    //     }
-    // }
-
-
-    // function escribir_datos(){
-    //     echo "hola";
-    //         $var = array();
-
-    //         if (count($var) == 0){
-    //             for ($i = 0; $i <= count($var)+1; $i++){
-    //                 if (empty($var[$i])){
-    //                     $var[$i] = 1;
-    //                     echo $var[$i];
-    //                     break;
-    //                   }
-    //                 }
-    //         }else{
-    //             for ($i = 0; $i < count($var)+1; $i++){
-    //                 if (empty($var[$i])){
-    //                     $var[$i] = 1;
-    //                     echo $var[$i];
-    //                     break;
-    //                 }
-    //                 }
-    //         }
-            
-    //         print_r ($var);
-    // }
-
-
-    function suma(){
+    function operacion(){
             $valor = $_REQUEST['valor'];
 
             if (empty($_REQUEST['operacion'])){
@@ -76,12 +31,69 @@
                     $var ++;
                     if($valI>=1){
                         $resultado = $resultado;
+                    }elseif($var>1) {
+                        $resultado = $resultado + $valor;
                     }else {
-                        $resultado = $resultado + $valor;   
+                        $resultado = $valor;
+                    }
+                    header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&operacion=$operacion");
+                    break;
+
+                // RESTA
+                case '-':
+                    $operacion = "resta";
+                    $boton = "-";
+                    $var ++;
+                    if($valI>=1){
+                        $resultado = $resultado;
+                    }elseif($var>1) {
+                        $resultado = $resultado - $valor;
+                    }else {
+                        $resultado = $valor;
+                    }
+                    header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&operacion=$operacion");
+                    break;
+
+                //MULTIPLICACION
+                case 'x':
+                    $operacion = "multiplicacion";
+                    $boton = "x";
+                    $var ++;
+                    if($valI>=1){
+                        $resultado = $resultado;
+                    }elseif($var>1) {
+                        $resultado = $resultado * $valor;
+                    }else {
+                        $resultado = $valor;
                     }
                     header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&operacion=$operacion");
                     break;
                 
+                //DIVISION
+                case '÷':
+                    $operacion = "division";
+                    $boton = "÷";
+                    $var ++;
+                    if($valI>=1){
+                        $resultado = $resultado;
+                    }elseif($var>1) {
+                        $resultado = $resultado / $valor;
+                    }else {
+                        $resultado = $valor;
+                    }
+                    header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&operacion=$operacion");
+                    break;
+
+                //LIMLPIAR
+                case 'C/AC':
+                    $boton = "";
+                    $var = 0;
+                    $valI = 0;
+                    $operacion = "";
+                    $resultado = 0;
+                    header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&operacion=$operacion");
+                    break;
+
                 //RESULTADO (=)
                 case '=':
                     $boton = "=";
@@ -92,62 +104,17 @@
                         $resultado = $resultado + $valor;
                     }elseif ($operacion == "resta") {
                         $resultado = $resultado - $valor;
+                    }elseif ($operacion == "multiplicacion") {
+                        $resultado = $resultado * $valor;
+                    }elseif ($operacion == "division") {
+                        $resultado = $resultado / $valor;
                     }
                     header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&valI=$valI&&operacion=$operacion");
                     break;
-
-                // RESTA
-                case '-':
-                    $operacion = "resta";
-                    $boton = "-";
-                    $var ++;
-                    if($valI>=1){
-                        $resultado = $resultado;
-                    }else {
-                        $resultado = $resultado - $valor;   
-                    }
-                    header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&operacion=$operacion");
-                    break;
-
-                //LIMLPIAR
-                case 'C/AC':
-                    $boton = "";
-                    $var = 0;
-                    $valI = 0;
-                    $operacion = "";
-                    $resultado = 0;
-                    header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&operacion=$operacion");
-                    break;
-
-                //LIMLPIAR
-                case 'C/AC':
-                    $boton = "";
-                    $var = 0;
-                    $valI = 0;
-                    $operacion = "";
-                    $resultado = 0;
-                    header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&operacion=$operacion");
-                    break;
-
-                
                 default:
                     # code...
                     break;
             }
-
-            
-            // if ($_REQUEST['number'] == "-") {
-            //     header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton");
-            // }
-
-
-            // if (empty($var)){
-            //     $resultado = $valor;
-            //     header("location: index.php?num=$var&&resultado=$resultado");
-            // }else {
-            //     $resultado = $resultado + $valor;
-            //     header("location: index.php?num=$var&&resultado=$resultado");
-            // }
     }
     
 
@@ -204,6 +171,10 @@
                 echo $resultado; 
             }elseif($resultado>=1 AND $boton == "-"){
                 echo "-";
+            }elseif($resultado>=1 AND $boton == "x"){
+                echo "x";
+            }elseif($resultado>=1 AND $boton == "÷"){
+                echo "÷";
             }
     }
 
