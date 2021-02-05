@@ -88,6 +88,11 @@
             //     header("location: index.php?num=$var&&resultado=$resultado");
             // }
     }
+    
+
+
+
+
 
     function verificar_valores(){
         if(empty($_REQUEST['boton'])){
@@ -97,33 +102,87 @@
             global $boton;
             $boton = $_REQUEST['boton'];
         }
-    
+
         if (empty($_REQUEST['num']) AND empty($_REQUEST['resultado'])){
-            global $resultado;
+            global $val;
             $val = 0;
+            global $resultado;
             $resultado = 0;
         }else {
-            global $resultado;
+            global $val;
             $val = $_GET['num'];
+            global $resultado;
             $resultado =$_REQUEST['resultado'];
         }
-    
+
         if(empty($_REQUEST['valI'])){
+            global $valI;
             $valI = 0;
         }else {
+            global $valI;
             $valI = $_GET['num'];
         }
     }
 
     function verificar_operaciones(){
-        global $resultado;
         global $boton;
+        global $resultado;
         if ($resultado>=1 AND $boton == "suma"){
-                echo "+"; 
+             echo "+"; 
             }elseif($boton == "="){
                 echo $resultado; 
             }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // function verificar_valores(){
+    //     if(empty($_REQUEST['boton'])){
+    //         global $boton;
+    //         $boton = "";
+    //     }else {
+    //         global $boton;
+    //         $boton = $_REQUEST['boton'];
+    //     }
+    
+    //     if (empty($_REQUEST['num']) AND empty($_REQUEST['resultado'])){
+    //         global $resultado;
+    //         $val = 0;
+    //         $resultado = 0;
+    //     }else {
+    //         global $resultado;
+    //         $val = $_GET['num'];
+    //         $resultado =$_REQUEST['resultado'];
+    //     }
+    
+    //     if(empty($_REQUEST['valI'])){
+    //         $valI = 0;
+    //     }else {
+    //         $valI = $_GET['num'];
+    //     }
+    // }
+
+    // function verificar_operaciones(){
+    //     global $resultado;
+    //     global $boton;
+    //     if ($resultado>=1 AND $boton == "suma"){
+    //             echo "+"; 
+    //         }elseif($boton == "="){
+    //             echo $resultado; 
+    //         }
+    // }
     
 
 ?>
