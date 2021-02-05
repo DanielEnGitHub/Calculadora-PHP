@@ -1,4 +1,3 @@
-<?php include("php/funciones.php"); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,16 +17,31 @@
     <img src="img/notebook.png" width="950px" class="notebok">
     <img src="img/apple.png" width="450px" class="apple">
     <img src="img/1_wfREjDBpYeKWMUQ97mPd6w.png" width="450px" class="pencil">
+<?php 
+    if(empty($_REQUEST['boton'])){
+        $boton = "";
+    }else {
+        $boton = $_REQUEST['boton'];
+    }
 
-<!-- CALCULADORA -->
-    <form action="proceso.php">
-    <center>
-    <form action="file.php" method="GET">
+    if (empty($_REQUEST['num']) AND empty($_REQUEST['resultado'])){
+        $val = 0;
+        $resultado = 0;
+    }else {
+        $val = $_GET['num'];
+
+        $resultado =$_REQUEST['resultado'];
+    }
+
+    ?>
+
+
+    <form action='proceso.php?val=<?php echo $val; ?>&&resultado=<?php echo $resultado; ?>' method='POST'>
+    <center> 
             <!-- pantalla -->
         <div class="container">
-            <h4 class="text">DANIEL GALLINA</h4><h4 class="txt">V1.0</h4>  
-            <input type="hidden" name="" value="DANIEL GALLINA"> 
-            <input type="text" name="valor" class="pantalla" value="<?php validarDatos(); ?>">
+            <h4 class="text">DANIEL GALLINA</h4><h4 class="txt">V1.0</h4>
+            <input placeholder="0" type="text" name="valor" class="pantalla" autocomplete="off" value="<?php if ($resultado>=1 AND $boton == "suma"){ echo "+"; }elseif($boton == "="){echo $resultado; } ; ?>">
         </div>
         <div class="keys">
             <!-- linea 1-->

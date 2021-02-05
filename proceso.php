@@ -1,6 +1,5 @@
 <?php
-    include ("php/funciones.php");
-    $var = $_REQUEST['number'];
+    include("php/funciones.php");
 
-    header("location: index.php ?number=$var");
+    suma();
 ?>
