@@ -48,6 +48,15 @@
             }
 // ----------------------------------------------------------------
 
+// -----------------------DIVISON-----------------------------------------
+            if (!empty($_REQUEST['pressedd'])){
+                $num4pressed = $_REQUEST['pressedd'];
+                // $resultado = $_REQUEST['resultado'];
+            }else {
+                $num4pressed = 0;
+            }
+// ----------------------------------------------------------------
+
 
             switch ($_REQUEST['number']) {
                 //SUMA
@@ -60,12 +69,18 @@
                         $resultado = $resultado;
                     }elseif($var>1) {
 
-                        if ($num2pressed >=1 AND $num3pressed == 0){
+                        if ($num2pressed >=1 AND $num3pressed == 0 AND $num4pressed == 0){
                             $resultado = $resultado - $valor;
                             $num2pressed = 0;
-                        }elseif($num3pressed >= 1 AND $num2pressed == 0){
+
+                        }elseif($num3pressed >= 1 AND $num2pressed == 0 AND $num4pressed == 0){
                             $resultado = $resultado * $valor;
                             $num3pressed = 0;
+
+                        }elseif($num4pressed >= 1 AND $num2pressed == 0 AND $num3pressed == 0){
+                            $resultado = $resultado / $valor;
+                            $num4pressed = 0;
+
                         }else {
                             $resultado = $resultado + $valor;    
                         }
@@ -86,12 +101,18 @@
                         $resultado = $resultado;
                     }elseif($var>1) {
 
-                        if ($num1pressed >=1 AND $num3pressed == 0){
+                        if ($num1pressed >=1 AND $num3pressed == 0 AND $num4pressed == 0){
                             $resultado = $resultado + $valor;
                             $num1pressed = 0;
-                        }elseif($num3pressed >= 1 AND $num1pressed == 0){
+
+                        }elseif($num3pressed >= 1 AND $num1pressed == 0 AND $num4pressed == 0){
                             $resultado = $resultado * $valor;
                             $num3pressed = 0;
+
+                        }elseif($num4pressed >= 1 AND $num1pressed == 0 AND $num3pressed == 0){
+                            $resultado = $resultado / $valor;
+                            $num4pressed = 0;
+
                         }else {
                             $resultado = $resultado - $valor;    
                         }
@@ -112,14 +133,20 @@
                         $resultado = $resultado;
                     }elseif($var>1) {
 
-                        if ($num1pressed >=1 AND $num2pressed == 0){
+                        if ($num1pressed >=1 AND $num2pressed == 0 AND $num4pressed == 0){
                             $resultado = $resultado + $valor;
                             $num1pressed = 0;
-                        }elseif($num2pressed >= 1 AND $num1pressed == 0){
-                            $resultado = $resultado * $valor;
+
+                        }elseif($num2pressed >= 1 AND $num1pressed == 0 AND $num4pressed == 0){
+                            $resultado = $resultado - $valor;
                             $num2pressed = 0;
+
+                        }elseif($num4pressed >= 1 AND $num1pressed == 0 AND $num2pressed == 0){
+                            $resultado = $resultado / $valor;
+                            $num4pressed = 0;
+                            
                         }else {
-                            $resultado = $resultado - $valor;    
+                            $resultado = $resultado * $valor;    
                         }
 
                     }else {
@@ -133,14 +160,31 @@
                     $operacion = "division";
                     $boton = "÷";
                     $var ++;
+                    $num4pressed ++;
                     if($valI>=1){
                         $resultado = $resultado;
                     }elseif($var>1) {
-                        $resultado = $resultado / $valor;
+                        
+                        if ($num1pressed >=1 AND $num2pressed == 0 AND $num3pressed == 0){
+                            $resultado = $resultado + $valor;
+                            $num1pressed = 0;
+
+                        }elseif($num2pressed >= 1 AND $num1pressed == 0 AND $num3pressed == 0){
+                            $resultado = $resultado - $valor;
+                            $num2pressed = 0;
+
+                        }elseif($num3pressed >= 1 AND $num1pressed == 0 AND $num2pressed == 0){
+                            $resultado = $resultado * $valor;
+                            $num3pressed = 0;
+                            
+                        }else {
+                            $resultado = $resultado / $valor;    
+                        }
+
                     }else {
                         $resultado = $valor;
                     }
-                    header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&operacion=$operacion");
+                    header("location: index.php?pressedd=$num4pressed&&num=$var&&resultado=$resultado&&boton=$boton&&operacion=$operacion");
                     break;
 
                 //LIMLPIAR
@@ -246,6 +290,14 @@
         }else {
             global $pressedx;
             $pressedx = $_REQUEST['pressedx'];
+        }
+
+        if(empty($_REQUEST['pressedd'])){
+            global $pressedd;
+            $pressedd = 0;
+        }else {
+            global $pressedd;
+            $pressedd = $_REQUEST['pressedd'];
         }
     }
 
