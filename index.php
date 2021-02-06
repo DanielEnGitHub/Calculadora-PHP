@@ -26,7 +26,11 @@
             <!-- pantalla -->
         <div class="container">
             <h4 class="text">DANIEL GALLINA</h4><h4 class="txt">V1.0</h4>
-            <input placeholder="0" id="resultado" type="text" name="valor" class="pantalla" autocomplete="off" value="<?php verificar_operaciones(); ?>">
+           
+            <input placeholder="0" id="resultado" type="text" name="valor" class="pantalla" autocomplete="off" value="<?php if($boton == "="){
+                echo $resultado; 
+            } ?>" readonly>
+            <div class="pantalla_num"><?php verificar_operaciones(); ?></div>
         </div>
         <div class="keys">
             <!-- linea 1-->
@@ -54,7 +58,9 @@
             <input type="submit" value="x" class="btn2" name="number">
 
             <!-- linea 4 -->
-            <br> <input type="submit" value="►" class="btn2" name="number">
+            <br> <input type="button" value="►" class="btn2" name="number"
+            onClick="var str1=document.getElementById('resultado').value; if(str1 == '0'){document.getElementById('resultado').value=4}else{ var str2='►'; var res = str1.substr(0,str1.length-1);document.getElementById('resultado').value=res;}"
+            >
             <input type="button" value="4" class="btn2_Black" name="number"
             onClick="var str1=document.getElementById('resultado').value; if(str1 == '0'){document.getElementById('resultado').value=4}else{ var str2='4'; var res = str1.concat(str2);document.getElementById('resultado').value=res;}"
             >
@@ -86,13 +92,25 @@
             <input type="button" value="00" class="btn2_Black" name="number"
             onClick="var str1=document.getElementById('resultado').value; if(str1 == '00'){document.getElementById('resultado').value=0}else{ var str2='00'; var res = str1.concat(str2);document.getElementById('resultado').value=res;}"
             >
-            <input type="submit" value="." class="btn2_Black" name="number">
+            <input type="button" value="." class="btn2_Black" name="number"
+            onClick="var str1=document.getElementById('resultado').value; if(str1 == '.'){document.getElementById('resultado').value=7}else{ var str2='.'; var res = str1.concat(str2);document.getElementById('resultado').value=res;}"
+            >
             <input type="submit" value="=" class="btn2_space" name="number">
 
         </div>
     </center>
-
     </form>
+
+    <!-- <script>
+        function retro(){ //Borrar sólo el último número escrito.
+         cifras=x.length; //hayar número de caracteres en pantalla
+         br=x.substr(cifras-1,cifras) //describir último caracter
+         x=x.substr(0,cifras-1) //quitar el ultimo caracter
+         if (x=="") {x="0";} //si ya no quedan caracteres, pondremos el 0
+         if (br==".") {coma=0;} //Si el caracter quitado es la coma, se permite escribirla de nuevo.
+         pantalla.innerHTML=x; //mostrar resultado en pantalla	 
+         }
+    </script> -->
 <!-- FIN CALCULADORA -->
 </body>
 </html>
