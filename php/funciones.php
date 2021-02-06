@@ -221,7 +221,9 @@
                     break;
                 
                 default:
-                    # code...
+                    $resultado = "En desarollo";
+                    $boton = "=";
+                    header("location: index.php?pressedx=$num3pressed&&num=$var&&resultado=$resultado&&boton=$boton&&operacion=$operacion");
                     break;
             }
     }
