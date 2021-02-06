@@ -21,7 +21,16 @@
                 $valI = 0;
                 $var = 0;
             }
-            
+// ----------------------------------------------------------------
+            if (!empty($_REQUEST['pressed'])){
+                $num1pressed = $_REQUEST['pressed'];
+                echo $num1pressed;
+                // $resultado = $_REQUEST['resultado'];
+            }else {
+                $num1pressed = 0;
+                echo "vacio";
+            }
+// ----------------------------------------------------------------
 
             switch ($_REQUEST['number']) {
                 //SUMA
@@ -111,7 +120,21 @@
                     }
                     header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&valI=$valI&&operacion=$operacion");
                     break;
-                    
+                
+                case '1':
+                    $boton = "1";
+                    $num1pressed ++;
+
+                    header("location: index.php?pressed=$num1pressed&&num=$var&&resultado=$resultado&&boton=$boton&&valI=$valI&&operacion=$operacion");
+                    break;
+
+                case '2':
+                    $boton = "2";
+                    $num1pressed ++;
+
+                    header("location: index.php?pressed=$num1pressed&&num=$var&&resultado=$resultado&&boton=$boton&&valI=$valI&&operacion=$operacion");
+                    break;
+                
                 default:
                     # code...
                     break;
@@ -159,6 +182,14 @@
             global $operacion;
             $operacion = $_REQUEST['operacion'];
         }
+
+        if(empty($_REQUEST['pressed'])){
+            global $pressed;
+            $pressed = 0;
+        }else {
+            global $pressed;
+            $pressed = $_REQUEST['pressed'];
+        }
     }
 
 
@@ -166,6 +197,7 @@
     function verificar_operaciones(){
         global $boton;
         global $resultado;
+        global $pressed;
         if ($resultado>=1 AND $boton == "suma"){
              echo "+"; 
             }elseif($boton == "="){
@@ -176,6 +208,14 @@
                 echo "x";
             }elseif($resultado>=1 AND $boton == "÷"){
                 echo "÷";
+            }elseif ($boton == "1") {
+                for ($i = 0; $i < $pressed; $i++ ){
+                    echo "1";
+                }
+            }elseif ($boton == "2") {
+                if($pressed>=1){
+                    echo $resultado;
+                }
             }
     }
 
