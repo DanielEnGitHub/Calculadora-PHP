@@ -21,30 +21,59 @@
                 $valI = 0;
                 $var = 0;
             }
-// ----------------------------------------------------------------
+// -----------------------SUMA-----------------------------------------
             if (!empty($_REQUEST['pressed'])){
                 $num1pressed = $_REQUEST['pressed'];
-                echo $num1pressed;
                 // $resultado = $_REQUEST['resultado'];
             }else {
                 $num1pressed = 0;
             }
 // ----------------------------------------------------------------
 
+// -----------------------RESTA-----------------------------------------
+            if (!empty($_REQUEST['pressedm'])){
+                $num2pressed = $_REQUEST['pressedm'];
+                // $resultado = $_REQUEST['resultado'];
+            }else {
+                $num2pressed = 0;
+            }
+// ----------------------------------------------------------------
+
+// -----------------------MULTIPLICACION-----------------------------------------
+            if (!empty($_REQUEST['pressedx'])){
+                $num3pressed = $_REQUEST['pressedx'];
+                // $resultado = $_REQUEST['resultado'];
+            }else {
+                $num3pressed = 0;
+            }
+// ----------------------------------------------------------------
+
+
             switch ($_REQUEST['number']) {
                 //SUMA
                 case 'SUMA':
                     $operacion = "suma";
                     $boton = "suma";
+                    $num1pressed ++;
                     $var ++;
                     if($valI>=1){
                         $resultado = $resultado;
                     }elseif($var>1) {
-                        $resultado = $resultado + $valor;
+
+                        if ($num2pressed >=1 AND $num3pressed == 0){
+                            $resultado = $resultado - $valor;
+                            $num2pressed = 0;
+                        }elseif($num3pressed >= 1 AND $num2pressed == 0){
+                            $resultado = $resultado * $valor;
+                            $num3pressed = 0;
+                        }else {
+                            $resultado = $resultado + $valor;    
+                        }
+
                     }else {
                         $resultado = $valor;
                     }
-                    header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&operacion=$operacion");
+                    header("location: index.php?pressed=$num1pressed&&num=$var&&resultado=$resultado&&boton=$boton&&operacion=$operacion");
                     break;
 
                 // RESTA
@@ -52,14 +81,25 @@
                     $operacion = "resta";
                     $boton = "-";
                     $var ++;
+                    $num2pressed ++;
                     if($valI>=1){
                         $resultado = $resultado;
                     }elseif($var>1) {
-                        $resultado = $resultado - $valor;
+
+                        if ($num1pressed >=1 AND $num3pressed == 0){
+                            $resultado = $resultado + $valor;
+                            $num1pressed = 0;
+                        }elseif($num3pressed >= 1 AND $num1pressed == 0){
+                            $resultado = $resultado * $valor;
+                            $num3pressed = 0;
+                        }else {
+                            $resultado = $resultado - $valor;    
+                        }
+                    
                     }else {
                         $resultado = $valor;
                     }
-                    header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&operacion=$operacion");
+                    header("location: index.php?pressedm=$num2pressed&&num=$var&&resultado=$resultado&&boton=$boton&&operacion=$operacion");
                     break;
 
                 //MULTIPLICACION
@@ -67,14 +107,25 @@
                     $operacion = "multiplicacion";
                     $boton = "x";
                     $var ++;
+                    $num3pressed ++;
                     if($valI>=1){
                         $resultado = $resultado;
                     }elseif($var>1) {
-                        $resultado = $resultado * $valor;
+
+                        if ($num1pressed >=1 AND $num2pressed == 0){
+                            $resultado = $resultado + $valor;
+                            $num1pressed = 0;
+                        }elseif($num2pressed >= 1 AND $num1pressed == 0){
+                            $resultado = $resultado * $valor;
+                            $num2pressed = 0;
+                        }else {
+                            $resultado = $resultado - $valor;    
+                        }
+
                     }else {
                         $resultado = $valor;
                     }
-                    header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&operacion=$operacion");
+                    header("location: index.php?pressedx=$num3pressed&&num=$var&&resultado=$resultado&&boton=$boton&&operacion=$operacion");
                     break;
                 
                 //DIVISION
@@ -94,6 +145,9 @@
 
                 //LIMLPIAR
                 case 'C/AC':
+                    $pressedx = 0;
+                    $pressedm = 0;
+                    $pressed = 0;
                     $boton = "";
                     $var = 0;
                     $valI = 0;
@@ -104,6 +158,9 @@
 
                 //RESULTADO (=)
                 case '=':
+                    $pressedx = 0;
+                    $pressedm = 0;
+                    $pressed = 0;
                     $boton = "=";
                     $valI ++;
 
@@ -117,20 +174,6 @@
                         $resultado = $resultado / $valor;
                     }
                     header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&valI=$valI&&operacion=$operacion");
-                    break;
-                
-                case '1':
-                    $boton = "1";
-                    $num1pressed ++;
-
-                    header("location: index.php?pressed=$num1pressed&&num=$var&&resultado=$resultado&&boton=$boton&&valI=$valI&&operacion=$operacion");
-                    break;
-
-                case '2':
-                    $boton = "2";
-                    $num1pressed ++;
-
-                    header("location: index.php?pressed=$num1pressed&&num=$var&&resultado=$resultado&&boton=$boton&&valI=$valI&&operacion=$operacion");
                     break;
                 
                 default:
@@ -188,6 +231,22 @@
             global $pressed;
             $pressed = $_REQUEST['pressed'];
         }
+
+        if(empty($_REQUEST['pressedm'])){
+            global $pressedm;
+            $pressedm = 0;
+        }else {
+            global $pressedm;
+            $pressedm = $_REQUEST['pressedm'];
+        }
+
+        if(empty($_REQUEST['pressedx'])){
+            global $pressedx;
+            $pressedx = 0;
+        }else {
+            global $pressedx;
+            $pressedx = $_REQUEST['pressedx'];
+        }
     }
 
 
@@ -195,7 +254,6 @@
     function verificar_operaciones(){
         global $boton;
         global $resultado;
-        global $pressed;
         if ($boton == "suma"){
              echo $resultado."+";
             }elseif($boton == "="){

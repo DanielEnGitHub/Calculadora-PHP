@@ -21,7 +21,7 @@
     <img src="img/apple.png" width="450px" class="apple">
     <img src="img/1_wfREjDBpYeKWMUQ97mPd6w.png" width="450px" class="pencil">
 
-    <form action='proceso.php?pressed=<?php echo $pressed; ?>&&val=<?php echo $val; ?>&&resultado=<?php echo $resultado; ?>&&valI=<?php echo $valI; ?>&&operacion=<?php echo $operacion; ?>' method='POST'>
+    <form action='proceso.php?pressedx=<?php echo $pressedx; ?>&&pressedm=<?php echo $pressedm; ?>&&pressed=<?php echo $pressed; ?>&&val=<?php echo $val; ?>&&resultado=<?php echo $resultado; ?>&&valI=<?php echo $valI; ?>&&operacion=<?php echo $operacion; ?>' method='POST'>
     <center> 
             <!-- pantalla -->
         <div class="container">
