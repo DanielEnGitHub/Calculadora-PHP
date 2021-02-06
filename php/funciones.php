@@ -111,6 +111,7 @@
                     }
                     header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&valI=$valI&&operacion=$operacion");
                     break;
+                    
                 default:
                     # code...
                     break;
