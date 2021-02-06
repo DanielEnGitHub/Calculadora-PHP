@@ -26,7 +26,7 @@
             <!-- pantalla -->
         <div class="container">
             <h4 class="text">DANIEL GALLINA</h4><h4 class="txt">V1.0</h4>
-            <input placeholder="0" type="text" name="valor" class="pantalla" autocomplete="off" value="<?php verificar_operaciones(); ?>">
+            <input placeholder="0" id="resultado" type="text" name="valor" class="pantalla" autocomplete="off" value="<?php verificar_operaciones(); ?>">
         </div>
         <div class="keys">
             <!-- linea 1-->
@@ -42,28 +42,50 @@
 
             <!-- linea 3 -->
             <br> <input type="submit" value="+/-" class="btn2" name="number">
-            <input type="submit" value="7" class="btn2_Black" name="number">
-            <input type="submit" value="8" class="btn2_Black" name="number">
-            <input type="submit" value="9" class="btn2_Black" name="number">
+            <input type="button" value="7" class="btn2_Black" name="number" 
+            onClick="var str1=document.getElementById('resultado').value; if(str1 == '0'){document.getElementById('resultado').value=7}else{ var str2='7'; var res = str1.concat(str2);document.getElementById('resultado').value=res;}"
+            > 
+            <input type="button" value="8" class="btn2_Black" name="number"
+            onClick="var str1=document.getElementById('resultado').value; if(str1 == '0'){document.getElementById('resultado').value=8}else{ var str2='8'; var res = str1.concat(str2);document.getElementById('resultado').value=res;}"
+            >
+            <input type="button" value="9" class="btn2_Black" name="number"
+            onClick="var str1=document.getElementById('resultado').value; if(str1 == '0'){document.getElementById('resultado').value=9}else{ var str2='9'; var res = str1.concat(str2);document.getElementById('resultado').value=res;}"
+            >
             <input type="submit" value="x" class="btn2" name="number">
 
             <!-- linea 4 -->
             <br> <input type="submit" value="►" class="btn2" name="number">
-            <input type="submit" value="4" class="btn2_Black" name="number">
-            <input type="submit" value="5" class="btn2_Black" name="number">
-            <input type="submit" value="6" class="btn2_Black" name="number">
+            <input type="button" value="4" class="btn2_Black" name="number"
+            onClick="var str1=document.getElementById('resultado').value; if(str1 == '0'){document.getElementById('resultado').value=4}else{ var str2='4'; var res = str1.concat(str2);document.getElementById('resultado').value=res;}"
+            >
+            <input type="button" value="5" class="btn2_Black" name="number"
+            onClick="var str1=document.getElementById('resultado').value; if(str1 == '0'){document.getElementById('resultado').value=5}else{ var str2='5'; var res = str1.concat(str2);document.getElementById('resultado').value=res;}"
+            >
+            <input type="button" value="6" class="btn2_Black" name="number"
+            onClick="var str1=document.getElementById('resultado').value; if(str1 == '0'){document.getElementById('resultado').value=6}else{ var str2='6'; var res = str1.concat(str2);document.getElementById('resultado').value=res;}"
+            >
             <input type="submit" value="-" class="btn2" name="number">
 
             <!-- linea 5 -->
             <br> <input type="submit" value="C/AC" class="btn2_Orange" name="number">
-            <input type="submit" value="1" class="btn2_Black" name="number">
-            <input type="submit" value="2" class="btn2_Black" name="number">
-            <input type="submit" value="3" class="btn2_Black_1" name="number">
+            <input type="button" value="1" class="btn2_Black" name="number"
+            onClick="var str1=document.getElementById('resultado').value; if(str1 == '0'){document.getElementById('resultado').value=1}else{ var str2='1'; var res = str1.concat(str2);document.getElementById('resultado').value=res;}"
+            >
+            <input type="button" value="2" class="btn2_Black" name="number"
+            onClick="var str1=document.getElementById('resultado').value; if(str1 == '0'){document.getElementById('resultado').value=2}else{ var str2='2'; var res = str1.concat(str2);document.getElementById('resultado').value=res;}"
+            >
+            <input type="button" value="3" class="btn2_Black_1" name="number"
+            onClick="var str1=document.getElementById('resultado').value; if(str1 == '0'){document.getElementById('resultado').value=3}else{ var str2='3'; var res = str1.concat(str2);document.getElementById('resultado').value=res;}"
+            >
             <input type="submit" value='SUMA' class="btn2_Suma" name="number">
 
             <!-- linea 6 -->
-            <br> <input type="submit" value="0" class="btn2_Black" name="number">
-            <input type="submit" value="00" class="btn2_Black" name="number">
+            <br> <input type="button" value="0" class="btn2_Black" name="number"
+            onClick="var str1=document.getElementById('resultado').value; if(str1 == '0'){document.getElementById('resultado').value=0}else{ var str2='0'; var res = str1.concat(str2);document.getElementById('resultado').value=res;}"
+            >
+            <input type="button" value="00" class="btn2_Black" name="number"
+            onClick="var str1=document.getElementById('resultado').value; if(str1 == '00'){document.getElementById('resultado').value=0}else{ var str2='00'; var res = str1.concat(str2);document.getElementById('resultado').value=res;}"
+            >
             <input type="submit" value="." class="btn2_Black" name="number">
             <input type="submit" value="=" class="btn2_space" name="number">
 

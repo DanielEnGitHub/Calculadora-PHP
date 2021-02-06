@@ -28,7 +28,6 @@
                 // $resultado = $_REQUEST['resultado'];
             }else {
                 $num1pressed = 0;
-                echo "vacio";
             }
 // ----------------------------------------------------------------
 
@@ -41,8 +40,10 @@
                     if($valI>=1){
                         $resultado = $resultado;
                     }elseif($var>1) {
+                        $valor = abs($valor);
                         $resultado = $resultado + $valor;
                     }else {
+                        $valor = abs($valor);
                         $resultado = $valor;
                     }
                     header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&operacion=$operacion");
@@ -56,8 +57,10 @@
                     if($valI>=1){
                         $resultado = $resultado;
                     }elseif($var>1) {
+                        $valor = abs($valor);
                         $resultado = $resultado - $valor;
                     }else {
+                        $valor = abs($valor);
                         $resultado = $valor;
                     }
                     header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&operacion=$operacion");
@@ -71,8 +74,10 @@
                     if($valI>=1){
                         $resultado = $resultado;
                     }elseif($var>1) {
+                        $valor = abs($valor);
                         $resultado = $resultado * $valor;
                     }else {
+                        $valor = abs($valor);
                         $resultado = $valor;
                     }
                     header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&operacion=$operacion");
@@ -86,8 +91,10 @@
                     if($valI>=1){
                         $resultado = $resultado;
                     }elseif($var>1) {
+                        $valor = abs($valor);
                         $resultado = $resultado / $valor;
                     }else {
+                        $valor = abs($valor);
                         $resultado = $valor;
                     }
                     header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&operacion=$operacion");
@@ -107,15 +114,18 @@
                 case '=':
                     $boton = "=";
                     $valI ++;
-                    echo $operacion;
 
                     if ($operacion == "suma"){
+                        $valor = abs($valor);
                         $resultado = $resultado + $valor;
                     }elseif ($operacion == "resta") {
+                        $valor = abs($valor);
                         $resultado = $resultado - $valor;
                     }elseif ($operacion == "multiplicacion") {
+                        $valor = abs($valor);
                         $resultado = $resultado * $valor;
                     }elseif ($operacion == "division") {
+                        $valor = abs($valor);
                         $resultado = $resultado / $valor;
                     }
                     header("location: index.php?num=$var&&resultado=$resultado&&boton=$boton&&valI=$valI&&operacion=$operacion");
@@ -199,7 +209,7 @@
         global $resultado;
         global $pressed;
         if ($resultado>=1 AND $boton == "suma"){
-             echo "+"; 
+             echo "+";
             }elseif($boton == "="){
                 echo $resultado; 
             }elseif($resultado>=1 AND $boton == "-"){
